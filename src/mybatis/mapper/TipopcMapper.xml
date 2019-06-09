@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.TipopcMapper">
+  <select id="listar" resultType="semana.bean.TipopcBean">
+    {call TipopcListar()}
+  </select>
+  
+  <select id="buscar" resultType="semana.bean.TipopcBean" parameterType="int">
+    {call tipopcBuscar(#{id})}
+  </select>
+  
+  <insert id="registrar" parameterType="semana.bean.TipopcBean">
+  	{call tipopcRegistrar(#{nombre},#{marca},#{proveedor},#{color},#{estado})}
+  </insert>
+  
+  <update id="actualizar" parameterType="semana.bean.TipopcBean">
+  	{call tipopcActualizar(#{id},#{nombre},#{marca},#{proveedor},#{color},#{estado})}
+  </update>
+  
+  <delete id="eliminar" parameterType="int">
+   {call tipopcEliminar(#{id})}
+  </delete>
+</mapper>  
